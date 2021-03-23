@@ -37,5 +37,6 @@
         git checkout -b;Switched to a new branch 'dev':创建并切换,它等价于:git branch dev;git checkout dev;Switched to a new branch 'dev'
 
     Source Tree:Git可视化
+Creating a new branch is quick.
     
 

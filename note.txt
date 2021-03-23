@@ -1,0 +1,41 @@
+2021/3/22
+    基本工具的使用
+        VSCode及拓展:主要IDE
+        Cmder:终端修改工具,支持git命令,自定义主题,tab分页,同屏多端口
+        rap2:可视化接口管理工具,可以在没有后端数据提供的时候使用随机数据模拟,支持mock.js语法
+            (ex: "mtime": "@datetime",//随机生成日期时间 
+                "score|1-800": 800,//随机生成1-800的数字
+                "rank|1-100":  100,//随机生成1-100的数字
+                "stars|1-5": 5,//随机生成1-5的数字
+                 "nickname": "@cname",//随机生成中文名字)
+
+
+        postman:用于接口测试,可以拦截请求
+        typora:类似于markdownpad 2,md编辑器
+        licecap:屏幕录制
+
+
+2021/3/23
+    git的使用
+        git init:将该目录编程Git可以管理的仓库
+        git add xxx.xxx:把文件添加到仓库中
+        git commit -m:把文件提交到仓库,-m后面可以输入本次提交的说明
+        git status:查看仓库当前状态
+        git diff xxx.xxx:查看文件修改的部分
+        git log:显示从最近到最远的提交日志
+        git reset --hard HEAD^或者git reset --hard 版本号:回退到上一个版本,HEAD^表示上一个版本,上上一个版本就是HEAD^^
+        git reflog:查看记录的每一次命令
+        git仓库结构
+        git diff HEAD -- readme.txt:查看工作区和版本库里面最新版本的区别
+        git checkout -- file:丢弃工作区的修改,也可以把误删的文件恢复到最新版本
+        git reset HEAD <file>:把暂存区的修改撤销掉,git reset命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用HEAD时，表示最新的版本。
+        git rm <file>:将文件从版本库中删除
+        git remote add origingit@git'.com:关联github远程仓库
+        git push:把本地库的内容推送到远程,第一次推送加上 -u参数
+        git remote rm <name>:删除仓库,使用前建议先用git remote -v查看远程库信息
+        git clone:克隆一个本地库
+        git checkout -b;Switched to a new branch 'dev':创建并切换,它等价于:git branch dev;git checkout dev;Switched to a new branch 'dev'
+
+    Source Tree:Git可视化
+    
+

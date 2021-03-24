@@ -8,8 +8,6 @@
                 "rank|1-100":  100,//随机生成1-100的数字
                 "stars|1-5": 5,//随机生成1-5的数字
                  "nickname": "@cname",//随机生成中文名字)
-
-
         postman:用于接口测试,可以拦截请求
         typora:类似于markdownpad 2,md编辑器
         licecap:屏幕录制
@@ -43,30 +41,22 @@
         git log:提交信息,可以添加多种参数
             搜索参数为提交的创建者和提交者
                 git log  --author=<pattern>git log --committer=<pattern>
-
             某个日期之后
                 git log --since=<date>
                 git log --after=<date>
-
             某个日期之前
                 git log --until=<date>
                 git log --before=<date>
-
             具体的时间区间
                 git log --since="2018.03.12" --until="2018.03.18"
-
             搜索提交信息
                 git log --grep='喜欢' --oneline
-
             查看某个字符串的变动历史提交
                 git log -S<string>
-
             查看某符合某一个正则表达式内容的变动历史提交
                 git log -G<regex>
-
             查看发生合并冲突的文件
                 git log --merge
-
             –graph:选项会绘制一个 ASCII 图像来展示提交历史的分支结构。
             –decorate:是用来可以显示出指向提交的指针的名字，也就是 HEAD 指针, feature/test等分支名称，还有远程分支，标签等。
 
@@ -139,5 +129,6 @@
 
         Application:可以查看本地存储,cookie等
         Sources:添加请求,向改地址发送请求时执行断点
+2021.3.24
 
 

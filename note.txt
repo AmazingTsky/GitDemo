@@ -8,8 +8,6 @@
                 "rank|1-100":  100,//随机生成1-100的数字
                 "stars|1-5": 5,//随机生成1-5的数字
                  "nickname": "@cname",//随机生成中文名字)
-
-
         postman:用于接口测试,可以拦截请求
         typora:类似于markdownpad 2,md编辑器
         licecap:屏幕录制
@@ -22,21 +20,115 @@
         git commit -m:把文件提交到仓库,-m后面可以输入本次提交的说明
         git status:查看仓库当前状态
         git diff xxx.xxx:查看文件修改的部分
+        git diff --cached:查看暂存区和仓库的差异
         git log:显示从最近到最远的提交日志
-        git reset --hard HEAD^或者git reset --hard 版本号:回退到上一个版本,HEAD^表示上一个版本,上上一个版本就是HEAD^^
+        git reset --hard HEAD^或者git reset --hard 版本号:回退到上一个版本,HEAD^表示上一个版本,上上一个版本就是HEAD^^,HEAD~100 回滚到100个版本之前
         git reflog:查看记录的每一次命令
         git仓库结构
         git diff HEAD -- readme.txt:查看工作区和版本库里面最新版本的区别
         git checkout -- file:丢弃工作区的修改,也可以把误删的文件恢复到最新版本
         git reset HEAD <file>:把暂存区的修改撤销掉,git reset命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用HEAD时，表示最新的版本。
-        git rm <file>:将文件从版本库中删除
+        git rm <file>:将文件从版本库中删除,工作区也会删除,添加--cached参数后只会从索引中删除文件,即本地文件还在;当通过rm删除文件后可以通过git reset;git checkout <file>来进行恢复
         git remote add origingit@git'.com:关联github远程仓库
         git push:把本地库的内容推送到远程,第一次推送加上 -u参数
         git remote rm <name>:删除仓库,使用前建议先用git remote -v查看远程库信息
         git clone:克隆一个本地库
-        git checkout -b;Switched to a new branch 'dev':创建并切换,它等价于:git branch dev;git checkout dev;Switched to a new branch 'dev'
+        git checkout -b:创建并切换,它等价于:git branch dev;git checkout dev;
+        git merge <branch>:用于合并指定分支到当前分支
+        git branch -d <branch>:删除已经合并的分支
+        git branch -D <branch>:在没检查是否合并的情况下直接删除分支
+        git switch -c <branch>:切换到分会,相对合理.可以使用-c，-c从同名的远程分支中自动创建一个新分支（请参阅--guess），或者使用--detach在切换的时候，将工作树从任何分支中分离出来。
+        git log:提交信息,可以添加多种参数
+            搜索参数为提交的创建者和提交者
+                git log  --author=<pattern>git log --committer=<pattern>
+            某个日期之后
+                git log --since=<date>
+                git log --after=<date>
+            某个日期之前
+                git log --until=<date>
+                git log --before=<date>
+            具体的时间区间
+                git log --since="2018.03.12" --until="2018.03.18"
+            搜索提交信息
+                git log --grep='喜欢' --oneline
+            查看某个字符串的变动历史提交
+                git log -S<string>
+            查看某符合某一个正则表达式内容的变动历史提交
+                git log -G<regex>
+            查看发生合并冲突的文件
+                git log --merge
+            –graph:选项会绘制一个 ASCII 图像来展示提交历史的分支结构。
+            –decorate:是用来可以显示出指向提交的指针的名字，也就是 HEAD 指针, feature/test等分支名称，还有远程分支，标签等。
+
+        git merge --no-ff 会让 Git 生成一个新的提交对象(推荐)
+        git stash:保存工作现场
+        git stash apply:恢复,此时stash中内容并不会删除
+        git stash drop:删除
+        git stash pop:恢复的同时把stash也删除了
+        git stash list:查看stash中的内容
+        git cherry-pick 4c805e2:自动提交和4c一样的改动
+        git remote:查看远程库信息,添加-v可以显示更详细的信息
+        git branch --set-upstream-to <branch-name> origin/<branch-name>:创建本地分支和远程分支的链接
+        git rebase:可以把本地未push的分叉提交历史整理成直线；rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。
+        git tag  <name>:打标签
+        git tag:查看所有标签
+        git show<tgname>:查看标签信息
+        git tag -a xxx -m"xxx" 10ex1s1:-a用于指定标签名,-m添加说明性文字
+        git push origin :refs/tags/v0.9:从远程删除标签(首先要现在本地 git tag -d v0.9删除标签)
+        git restore --staged<file>:可以取消暂存
+        git restore:丢弃工作区的改动
 
     Source Tree:Git可视化
-Creating a new branch is quick.
-    
+    Chrome Devtools
+        Generic
+            copy:复制任何东西
+            store:选中元素:store as global variable存储为全局变量,可以结合copy进行复制
+            Sources下snippets:新建代码片段,右击直接run
+            command:命令行工具ctrl+shift+p打开
+                打开capture截图工具,选中单个节点可以针对节点内容截图
+                show rendering:查看正在重绘的目标,也可以直接右击打开rendering
+                    rendering中可以选中特定选项框实现特定功能:如监测FPS等
+
+                右击打开animations:测试动画效果，可以保存上一个动画来进行对比
+                在修改styles后,右击打开changes查看修改的css文件差别，类似git的diff
+
+
+        Elements:
+            可以通过Ctrl+C直接复制
+            可以直接拖动标签修改排序,按H可以隐藏元素.
+            右键元素代码选择Scroll into view可以根据代码找元素
+            查看效果
+            右键元素的代码,此时元素不会被移除,可以打断点
+                Subtree modifications： 在移除或添加当前所选节点的子级，或更改子级内容时触发这类断点。 在子级节点属性发生变化或对当前所选节点进行任何更改时不会触发这类断点。
+                Attributes modifications：在当前所选节点上添加或移除属性，或属性值发生变化时触发这类断点。
+                Node Removal：在移除当前选定的节点时会触发。
+
+            monitorEvents($0):监听当前选中元素触发了哪些事件
+            Elements:Event Listenner查看绑定的事件
+
+        Console
+            $0:当前选中的节点
+            $1:上一个选中的节点
+            $$("div"):所有的div标签,选中某种元素
+            $_:执行上一次表达式的结果
+            console
+                console.log:通过console.log(json,stringfy(obj))
+                支持异步
+                tips
+                console.table:可以做出可视化数据的效果
+                console.dir:层次深时使用
+                console.group(xxx)/console.groupEnd(xxx):
+                console.count:可以用于监听函数执行次数
+                console.error/console,warn:
+                console.time(xxx)/console.timeEnd(xxx):计算代码执行时间
+
+
+        Network
+            第一个选项可以设置隐藏请求地址,第二个可以隐藏预览
+            右键选择reply可以重新发送请求不用刷新
+
+        Application:可以查看本地存储,cookie等
+        Sources:添加请求,向改地址发送请求时执行断点
+2021.3.24
+
 
